@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang=zh-cn> 
+<head>
+	<meta charset=utf-8> 
+	<title>CLD.System</title> 
+	<meta name=description content=电子版晴雨表，在线晴雨表，网页晴雨表> 
+	<link rel="shortcut icon" href="images/favicon.ico"> 
+	<meta name=copyright content=smartcost.com.cn> 
+	<link rel=stylesheet href="http://cld.com/global/css/global.css"> 
+	<script src="http://cld.com/global/js/jquery-1.7.1.min.js"></script> 
+	<script src="http://cld.com/global/js/global.js"></script>
+</head>
+ <script src="http://cld.com/global/js/receipt.js"></script>
+<body>
+	<div class="mainLayout">
+		<div class="mainMenu">
+			<div class="menuItem">
+				<a href="#" class="mLogo">CLD</a>
+				<ul>
+					<li data-placement="bottom" data-toggle="ctooltip" data-original-title="信息中心" class="topLine"><a href="/" class="icon- " >B</a></li>
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="通讯录"><a href="/contacts" class="icon-">A</a></li>
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="在线锁库"><a href="/keyonline" class="icon- ">C</a></li>
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="APP" class="topLine">
+<a href="/app" class="icon- ">Y</a></li>
+<li class="hide"><a href="#" class="icon-">E</a></li>
+<li class="hide"><a href="#" class="icon-">D</a></li>
+<-- 
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="报销单"><a href="/myReceipt" class="icon-  selected ">U</a></li> 
+-->
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="个人设置" ><a href="/adminlock" class="icon- ">F</a></li>
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="退出系统"><a href="/out" class="icon-">G</a></li>
+
+
+				</ul>
+			</div>
+		</div>
+		<div class="warpContent">
+			<div class="subMenu fL">
+				<div class="menuItem">
+					<ul>
+						<ul>
+						<li class="saeaTitle">报销单</li>
+						<li><a  class="selected"  href="/myReceipt">我的报销单</a></li>
+						<li><a href="/personalCollect" >个人汇总</a></li>
+						<li><a href="/saeaCreate" >创建报销单</a></li>
+						
+												<li class="topLine"><a  href="/approval">报销单审批</a></li>
+						<li><a href="/companyCategoryCollect"  >公司汇总</a></li>
+											</ul>					</ul>
+				</div>
+			</div>
+			<div class="adminContent autoHeight" style="height: 821px;">
+				<legend><div class="fR"></div>以下是您的报销单</legend>
+				<div class="demandCate">
+				<form action="/myReceipt" id="up" method="post">
+					<input type="hidden" name="item"  value="past"   />
+					
+					<ul class="cateList ">
+	  					<li>
+	  					<a href="/myReceipt/all" >所有</a>
+	  					<a href="/myReceipt/approval"  >审批中</a>
+	  					<a href="/myReceipt/past"  class="now"  >已支付</a>
+	  					<a href="/myReceipt/withdraw"  >退回</a>
+	  					</li>
+	  					<li>
+	  					<select name="year" id="Y" onchange="receiptYear();">
+	  					<option  selected  value="2014"  >2014</option>
+	  					<option  value="2015">2015</option>
+	  					</select> 
+	  					<select name="moth" id="M" onchange="receiptMoth();">
+	  					<option value="">所有月份</option>
+	  					<option value="1">1月</option><option value="2">2月</option><option selected value="3">3月</option><option value="4">4月</option><option value="5">5月</option><option value="6">6月</option><option value="7">7月</option><option value="8">8月</option><option value="9">9月</option><option value="10">10月</option><option value="11">11月</option><option value="12">12月</option>	  					</select>
+	  					</li>
+	  					<li>报销总计：￥0</li>
+	  					<li>同意支付：<span class="colGreen">￥0</span></li>
+	  					<li>审批中：￥0</li>
+	  			</ul>
+	  			</form>
+	  		</div>
+	  		<div class="saeaList">
+	  				  			
+			</div>
+		</div>
+	</div>
+	<!--弹出-->
+<div class="modal hide fade" id="addCallout">
+    <div class="modal-header">
+    <h3>添加批注</h3>
+    </div>
+    <div class="modal-body">
+    <form class="">
+	    	<div class="control-group">
+				<div class="controls clearfix">
+					<label>
+	                	批注内容
+	              	</label>
+	              	<textarea rows="8" class="span6"></textarea>
+				</div>
+	    	</div>
+    </form>
+    </div>
+	<div class="modal-footer">
+	    <a href="#" class="button btn-gray" data-dismiss="modal" aria-hidden="true">取消</a>
+	   	<a href="#" class="button">确定</a>
+	</div>
+</div>
+    <!--弹出内容-->
+<script type="text/javascript">autoFlashHeight();</script>	
+</body>

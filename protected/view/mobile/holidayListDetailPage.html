@@ -1,0 +1,167 @@
+<!-- include 'holiday_header' -->
+  <body>
+    <div class="page-group holidayList">
+        <div class="page page-current">
+            <header class="bar bar-nav">
+                <!-- if {{thispage}} != 'cs' -->
+                <button class="button button-link button-nav pull-left">
+                    <!-- if {{thispage}} == 'list' -->
+                    <a href="/holidaylist" class="icon icon-left back"></a>
+                    <!-- elseif {{thispage}} == 'unlist' -->
+                    <a href="/holidaylist" class="icon icon-left" external></a>
+                    <!-- elseif {{thispage}} == 'approval' -->
+                    <a href="/holidayapprovallist" class="icon icon-left back"></a>
+                    <!-- elseif {{thispage}} == 'unapproval' -->
+                    <a href="/holidayapprovallist" class="icon icon-left" external></a>
+                    <!-- endif -->
+                </button>
+                <!-- endif -->
+              <h1 class="title holidayTBg">假条审批详情</h1>
+            </header>
+            <!-- if {{thispage}} != 'cs' -->
+            <!-- include 'holiday_nav' -->
+            <!-- endif -->
+            <!-- if {{approvaldivshow}} == 1 -->
+            <div class="bar bar-header-secondary barBig">
+                <div class="row" style="overflow: inherit;">
+                    <div class="col-50"><button class="button button-big button-block button-fill button-danger confirm-cancel">不同意</button></div>
+                    <div class="col-50"><button class="button button-big button-block button-fill button-success confirm-ok">同意</button></div>
+                </div>
+            </div>
+            <!-- endif -->
+
+            <div class="content">
+                <input id="hid" value="{{holidaymsg.id}}" type="hidden">
+                <div class="content-block-title">详情</div>
+                <div class="list-block">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">姓名</div>
+                                <div class="item-after">{{staffmsg.username}}</div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">假期类型</div>
+                                <div class="item-after">{{holidaymsg.type}}</div>
+                            </div>
+                        </li>
+                        <!-- if isset({{longdaymsg}}) -->
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">请假时间</div>
+                                <div class="item-after">{{longdaymsg}}</div>
+                            </div>
+                        </li>
+                        <!-- endif -->
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">申请天数</div>
+                                <div class="item-after"><b>{{holidaymsg.daynum}}天</b></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- if !isset({{longdaymsg}}) -->
+                <!-- if {{holidaymsg.type}} == '调休' -->
+                <div class="content-block-title">休假日期列表</div>
+                <div class="list-block">
+                    <ul>
+                        <!-- loop holidayday -->
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">{{holidayday' value.daytime}}</div>
+                                    <div class="item-after">
+                                        {{holidayday' value.daymsg}}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- endloop -->
+                    </ul>
+                </div>
+                <div class="content-block-title">加班日期列表</div>
+                <div class="list-block">
+                    <ul>
+                        <!-- loop overtimeday -->
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">{{overtimeday' value.daytime}}</div>
+                                    <div class="item-after">
+                                        {{overtimeday' value.daymsg}}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- endloop -->
+                    </ul>
+                </div>
+                <!-- else -->
+                <div class="content-block-title">{{holidaymsg.type}}日期列表</div>
+                <div class="list-block">
+                    <ul>
+                        <!-- loop holidayday -->
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label">{{holidayday' value.daytime}}</div>
+                                    <div class="item-after">
+                                        {{holidayday' value.daymsg}}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- endloop -->
+                    </ul>
+                </div>
+                <!-- endif -->
+                <!-- endif -->
+                <!-- if {{holidaymsg.type}} != '年假' -->
+                <div class="content-block-title">原因</div>
+                <div class="list-block">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="card-content holidayYy">
+                                    <div class="card-content-inner">
+                                        {{holidaymsg.description}}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- endif -->
+                <div class="content-block-title">审批人</div>
+                <div class="list-block">
+                    <ul>
+                        <!-- loop approvallist -->
+                        <li class="item-content itemPrel">
+                            <div class="item-inner" <!-- if {{approvallist' value.aid}} == {{staff.0.sid}} -->id="thisapprover"<!-- endif -->>
+                                <div class="item-title">{{approvallist' value.aname}}</div>
+                                <div class="item-after"><!-- if {{approvallist' value.status}} == 2 -->同意<!-- elseif {{approvallist' value.status}} == 3 -->不同意<!-- else -->未审批<!-- endif --></div>
+                                <div class="itemView" longmsg="{{approvallist' value.description}}">{{approvallist' value.shortdescription}}</div>
+                            </div>
+                        </li>
+                        <!-- endloop -->
+                    </ul>
+                </div>
+                <div class="content-block-title">抄送</div>
+                <div class="list-block">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">抄送</div>
+                                <div class="item-after">{{csmsg.name}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

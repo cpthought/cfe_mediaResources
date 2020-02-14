@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang=zh-cn> 
+<head>
+	<meta charset=utf-8> 
+	<title>CLD.System</title> 
+	<meta name=description content=电子版晴雨表，在线晴雨表，网页晴雨表> 
+	<link rel="shortcut icon" href="images/favicon.ico"> 
+	<meta name=copyright content=smartcost.com.cn> 
+	<link rel=stylesheet href="http://cld.com/global/css/global.css"> 
+	<script src="http://cld.com/global/js/jquery-1.7.1.min.js"></script> 
+	<script src="http://cld.com/global/js/global.js"></script>
+</head>
+<script src="http://cld.com/global/js/receipt.js"></script>
+<body>
+<div class="mainLayout">
+<div class="mainMenu">
+<div class="menuItem"><a href="#" class="mLogo">CLD</a>
+<ul>
+	<li data-placement="bottom" data-toggle="ctooltip" data-original-title="信息中心" class="topLine"><a href="/" class="icon- " >B</a></li>
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="通讯录"><a href="/contacts" class="icon-">A</a></li>
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="在线锁库"><a href="/keyonline" class="icon- ">C</a></li>
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="APP" class="topLine">
+<a href="/app" class="icon- ">Y</a></li>
+<li class="hide"><a href="#" class="icon-">E</a></li>
+<li class="hide"><a href="#" class="icon-">D</a></li>
+<-- 
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="报销单"><a href="/myReceipt" class="icon-  selected ">U</a></li> 
+-->
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="个人设置" ><a href="/adminlock" class="icon- ">F</a></li>
+<li data-placement="bottom" data-toggle="ctooltip" data-original-title="退出系统"><a href="/out" class="icon-">G</a></li>
+
+
+</ul>
+</div>
+</div>
+<div class="warpContent">
+<div class="subMenu fL">
+<div class="menuItem">
+<ul>
+	<ul>
+						<li class="saeaTitle">报销单</li>
+						<li><a  href="/myReceipt">我的报销单</a></li>
+						<li><a href="/personalCollect" >个人汇总</a></li>
+						<li><a href="/saeaCreate" >创建报销单</a></li>
+						
+												<li class="topLine"><a  href="/approval">报销单审批</a></li>
+						<li><a href="/companyCategoryCollect"  class="selected"  >公司汇总</a></li>
+											</ul></ul>
+</div>
+</div>
+<div class="adminContent autoHeight" style="height: 821px;"><legend>
+<div class="fL"></div>
+员工每月报销单汇总</legend>
+<div class="demandCate">
+<form action="/staffCollect" id="up" method="post">
+<ul class="cateList">
+	<li><a href="/companyCategoryCollect">按办事处</a><a href="#"
+		class="now">按员工</a></li>
+	<li><select name="year" id="Y" onchange="receiptYear();">
+	  					<option  selected  value="2014"  >2014</option>
+<option  value="2015">2015</option>
+<option  value="2016">2016</option>
+<option  value="2017">2017</option>	  					</select> 
+	  <select name="month" id="M" onchange="receiptYear();">
+		<option value="1">1</option><option value="2">2</option><option value="3">3</option><option selected value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>	</select></li>
+
+	<li><b>4月</b>报销总计：￥745.88</li>
+	<li><b>4月</b>同意支付：<span class="colGreen">￥745.88</span></li>
+	<li><b>4月</b>审批中：￥0</li>
+</ul>
+</form>
+</div>
+<div class="saeaList">
+<div class="entry">
+<table class="table table-bordered table-condensed table-hover">
+	<tbody>
+				<tr>
+			<th class="taC" width="110">安徽办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/陈帅">陈帅</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/范月光">范月光</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/林森">林森</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/xmlwww">xmlwww</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">甘肃办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/王涛">王涛</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/苟彦刚">苟彦刚</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/舒媚">舒媚</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/李满花">李满花</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">广东办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/刘飞">刘飞</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/王洪生">王洪生</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/姜栋">姜栋</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/刘庆">刘庆</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/封冬梅">封冬梅</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">广西办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/黄巾桃">黄巾桃</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/陈叶婷">陈叶婷</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">江西办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/祝海宾">祝海宾</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/王文鹏">王文鹏</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/蔡晚君">蔡晚君</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">四川办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/罗杰">罗杰</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/全冰">全冰</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/汪琴">汪琴</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">重庆办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/王星植">王星植</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/张文远">张文远</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/方淑静">方淑静</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/李清学">李清学</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/周洪波">周洪波</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">内蒙办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/罗发明">罗发明</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/孙燕娇">孙燕娇</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/张晓娟">张晓娟</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/杨卫东">杨卫东</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">浙江办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">山东办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">总部</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/谭玉堂">谭玉堂</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/何银龄">何银龄</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/张引">张引</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/杨福芳">杨福芳</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/赵淑燕">赵淑燕</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/陈世龙">陈世龙</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/冷淑梅">冷淑梅</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/麦心蓉">麦心蓉</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/陈特">陈特</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/任杰">任杰</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/蔡频">蔡频</a>
+				</th>
+						<td class="taR">￥378.48</td><td class="taR">￥56.20</td><td class="taR">￥300.00</td><td class="taR">￥21.20</td><td class="taR">￥-10.00</td><td class="colGreen taR">￥745.88</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/王晶">王晶</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/张少珊">张少珊</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/黄爱玲">黄爱玲</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/欧汝">欧汝</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/付青青">付青青</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+							<th>
+					<a href="/staffCollectDetail/王丰">王丰</a>
+				</th>
+						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">￥378.48</td><td class="colGreen taR">￥56.20</td><td class="colGreen taR">￥300.00</td><td class="colGreen taR">￥21.20</td><td class="colGreen taR">￥-10.00</td><td class="colGreen taR">￥745.88</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">云南办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						<tr>
+			<th class="taC" width="110">贵州办</th>
+			<th class="taC" width="110">办事处相关费用</th>
+			<th class="taC" width="110">差旅相关费用</th>
+			<th class="taC" width="110">培训班费用</th>
+			<th class="taC" width="110">其他</th>
+			<th class="taC" width="110">报销金额调整</th>
+			<th class="taC" width="110">合计</th>
+		</tr>
+					<tr >
+						<th class="taR">
+				合计			</th>
+						<td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">-</td><td class="colGreen taR">￥0</td>			</tr>
+			
+						
+		<tr class="warning">
+			<td class="taR"><b>2014年4月费用合计</b></td>
+			<td class="colGreed taR" colspan="11"><b style="font-size: 24px">￥745.88</b></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!--弹出-->
+<div class="modal hide fade" id="addCallout">
+<div class="modal-header">
+<h3>添加批注</h3>
+</div>
+<div class="modal-body">
+<form class="">
+<div class="control-group">
+<div class="controls clearfix"><label> 批注内容 </label> <textarea
+	rows="8" class="span6"></textarea></div>
+</div>
+</form>
+</div>
+<div class="modal-footer"><a href="#" class="button btn-gray"
+	data-dismiss="modal" aria-hidden="true">取消</a> <a href="#"
+	class="button">确定</a></div>
+</div>
+<!--弹出内容--> <script type="text/javascript">
+	autoFlashHeight();
+</script>
+</body>

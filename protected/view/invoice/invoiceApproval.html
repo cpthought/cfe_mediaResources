@@ -1,0 +1,103 @@
+<!-- include 'header' -->
+<script type='text/javascript' src='<?= WEB_SITE_GLOBAL ?>js/invoice.js' charset='utf-8'></script>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav">
+            <h1 class="title holidayTBg">发票审批</h1>
+          </header>
+            <!-- include 'invoiceNav' -->
+            <div class="content">
+              <div class="content-block tabTitleBox">
+                <div class="buttons-row">
+                  <a href="#tab1" class="tab-link active button tabBtnBig">待审批</a>
+                  <a href="#tab2" class="tab-link button tabBtnBig">已审批</a>
+                </div>
+              </div>
+              <div class="tabs">
+                <div id="tab1" class="tab active">
+                  <div class="content-block pLR-n">
+                  <!-- loop invoiceList -->
+                    <div class="list-block media-list">
+                      <ul>
+                        <li>
+                          <a href="/invoiceApprovalDetail/{{ilist' value.iidKey}}.html" class="item-link item-content">
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">开票金额【 <!-- if !empty({{invoiceList' value.invoiceType}}) -->
+                                    <b>￥{{invoiceList' value.invoicePrice}}</b><sup>专</sup>
+                                    <!-- else -->
+                                    <b>￥{{invoiceList' value.invoicePrice}}</b>
+                                    <!-- endif -->】</div>
+                              </div>
+                              <div class="item-subtitle">
+								<!-- if !empty({{invoiceList' value.invoiceType}}) -->
+                                   	{{invoiceList' value.invoiceCompany}}
+                                    <!-- else -->
+                                    {{invoiceList' value.invoiceTitle}}
+                                    <!-- endif -->
+								
+								</div>
+                              <div class="item-text">提交开票：{{invoiceList' value.categoryName}}{{invoiceList' value.userName}} {{invoiceList' value.date}}</div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                   <!-- endloop -->
+                    
+                    
+                    
+                  </div>
+                </div>
+                <div id="tab2" class="tab">
+                 <!-- loop ilist -->
+                  <div class="list-block media-list">
+                    <ul>
+                      <li>
+                        <a href="/invoiceDetails/approvla/{{ilist' value.iidKeyK}}.html" class="item-link item-content">
+                          <div class="item-inner">
+                            <div class="item-title-row">
+                              <div class="item-title">开票金额【<!-- if !empty({{ilist' value.invoiceType}}) -->
+	                                    <b>￥{{ilist' value.invoicePrice}}</b><sup>专</sup>
+	                                    <!-- else -->
+	                                    <b>￥{{ilist' value.invoicePrice}}</b>
+	                                    <!-- endif -->】</div>
+                              <div class="item-after">
+								 <!-- if {{ilist' value.operationLog.status}}==2 -->
+                                    同意
+                                   <!-- elseif {{ilist' value.operationLog.status}}==3 -->
+                                   退回
+                                   <!-- elseif {{ilist' value.operationLog.status}}==4 -->
+                                   终止
+                                   <!-- endif -->
+							
+							</div>
+                            </div>
+                            <div class="item-subtitle">
+							<!-- if !empty({{ilist' value.invoiceType}}) -->
+	                                   	{{ilist' value.invoiceCompany}}
+	                                    <!-- else -->
+	                                    {{ilist' value.invoiceTitle}}
+	                                    <!-- endif -->
+							</div>
+                            <div class="item-text">提交开票：{{invoiceList' value.categoryName}}{{invoiceList' value.userName}} {{invoiceList' value.date}}</div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- endloop -->
+                 
+                  
+                  
+                  
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+       
+  </body>
+</html>

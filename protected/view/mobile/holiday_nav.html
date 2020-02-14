@@ -1,0 +1,17 @@
+<nav class="bar bar-tab">
+    <a class="tab-item external <!-- if {{thispage}} == 'request' -->active<!-- endif -->" href="/request">
+        <!-- <span class="icon icon-edit"></span> -->
+        <span class="tab-label">请假申请</span>
+    </a>
+    <a class="tab-item external <!-- if {{thispage}} == 'list'  || {{thispage}} == 'unlist' -->active<!-- endif -->" href="/holidaylist">
+        <!-- <span class="icon icon-me active"></span> -->
+        <span class="tab-label">我的假条</span>
+    </a>
+    <!-- if {{isapproval}} == 1 -->
+    <a class="tab-item external <!-- if {{thispage}} == 'approval' || {{thispage}} == 'unapproval' -->active<!-- endif -->" href="/holidayapprovallist">
+        <!-- <span class="icon icon-menu"></span> -->
+        <span class="tab-label">假条审批</span>
+        <!-- if isset({{approvalnum}}) && !empty({{approvalnum}}) --><span class="badge">{{approvalnum}}</span><!-- endif -->
+    </a>
+    <!-- endif -->
+</nav>

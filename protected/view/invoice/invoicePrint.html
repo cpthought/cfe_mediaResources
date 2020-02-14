@@ -1,0 +1,98 @@
+<!-- include 'header' -->
+
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav">
+            <h1 class="title holidayTBg">发票打印</h1>
+          </header>
+          
+            <!-- include 'invoiceNav' -->
+            
+            <div class="content">
+              <div class="content-block tabTitleBox">
+                <div class="buttons-row">
+                  <a href="#tab1" class="tab-link active button tabBtnBig">待打印</a>
+                  <a href="#tab2" class="tab-link button tabBtnBig">已打印</a>
+                </div>
+              </div>
+              <div class="tabs">
+                <div id="tab1" class="tab active">
+                  <div class="content-block pLR-n">
+                  
+                  <!-- if !empty({{toPrint}}) -->
+                  <!-- loop toPrint -->
+                    <div class="list-block media-list">
+                      <ul>
+                        <li>
+                          <a href="/invoicePrintDetail/{{invoiceList' vlaue.iidKey}}.html" class="item-link item-content">
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">开票金额【￥<!-- if !empty({{invoiceList' value.invoiceType}}) -->{{invoiceList' value.invoicePrice}}专
+                                <!-- else -->{{invoiceList' value.invoicePrice}}
+                                <!-- endif -->
+                                	】</div>
+                              </div>
+                              <div class="item-subtitle">
+								<!-- if !empty({{invoiceList' value.invoiceType}}) -->
+                                   	{{invoiceList' value.invoiceCompany}}
+                                <!-- else -->
+                                    {{invoiceList' value.invoiceTitle}}
+                                <!-- endif -->
+								</div>
+                              <div class="item-text">提交开票：
+           						{{invoiceList' value.categoryName}}{{invoiceList' value.userName}} {{invoiceList' value.date}}                   
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- endloop -->
+                    <!-- endif -->
+                    
+                  </div>
+                </div>
+                <div id="tab2" class="tab">
+                
+                <!-- if !empty({{printed}}) -->
+                <!-- loop printed -->
+                  <div class="list-block media-list">
+                    <ul>
+                      <li>
+                        <a href="/invoicePrintDetail/{{printed' vlaue.iidKey}}.html" class="item-link item-content">
+                          <div class="item-inner">
+                            <div class="item-title-row">
+                              <div class="item-title">开票金额【￥<!-- if !empty({{invoiceList' value.invoiceType}}) -->
+                                    {{invoiceList' value.invoicePrice}}专
+                              <!-- else -->
+                                    {{invoiceList' value.invoicePrice}}
+                             <!-- endif -->
+                             	 】</div>
+                            </div>
+                            <div class="item-subtitle"><!-- if !empty({{invoiceList' value.invoiceType}}) -->
+                                   	{{invoiceList' value.invoiceCompany}}
+                                    <!-- else -->
+                                    {{invoiceList' value.invoiceTitle}}
+                                    <!-- endif --></div>
+                            <div class="item-text">提交开票：{{invoiceList' value.categoryName}}{{invoiceList' value.userName}} {{invoiceList' value.date}}</div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- endloop -->
+                  <!-- endif -->
+                  
+                  
+                  
+                </div>
+                
+              </div>
+            </div>
+        </div>
+    </div>
+
+       
+  </body>
+</html>

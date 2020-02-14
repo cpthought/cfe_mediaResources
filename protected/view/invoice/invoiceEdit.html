@@ -1,0 +1,439 @@
+<!-- include 'header' -->
+<script type='text/javascript' src='/ajaxGetRelevantInvoice/{{now}}.js' charset='utf-8'></script>
+<script type='text/javascript' src='<?= WEB_SITE_GLOBAL ?>js/invoice.js' charset='utf-8'></script>
+
+
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav">
+              <a class="icon icon-left pull-left" href="/invoiceDetails/{{invoiceDetail.iidKeyUrl}}.html"></a>
+              <h1 class="title holidayTBg">我的发票</h1>
+          </header>
+           <!-- include 'invoiceNav' -->
+           
+           
+          <form action="/invoiceEditDo" method="post" id="invoice"  novalidate="novalidate">
+            <input type="hidden" name="iidKey" value="{{invoiceDetail.iidKey}}">
+           <input type="hidden" name="invoiceType" id="invoiceType" value="{{invoiceDetail.invoiceType}}">
+           <input type="hidden" name="doPost"  id="doPost" value="{{invoiceDetail.doPost}}">
+           
+           <div class="bar bar-header-secondary barBig">
+              <div class="row" style="overflow: inherit;">
+                <div class="col-50"><a href="/invoiceDetails/{{invoiceDetail.iidKeyUrl}}.html" class="button button-big button-block button-fill button-danger">取消</a></div>
+                <div class="col-50">
+                <button type="submit" class="button button-big button-block button-fill button-success" data-toggle="modal">重新审批</button>
+                </div>
+              </div>
+            </div>
+           
+            <div class="content" style="bottom: 2.5rem;" >
+           
+            
+           
+              <div class="content-block pLR-n">
+                <p class="btn-bg bg-Orange">重新提交审批，将由退回人继续审批，无需从头开始审批。</p>
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">{{operation.username}}</div>
+                        <div class="item-input item-inputLeft">{{operation.operation}}</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">所在办事处</div>
+                        <div class="item-input">
+                          <input type="text" name="cid" readonly="readonly" id='pickerOffice' value="{{invoiceDetail.categoryName}}" placeholder="请选择您的办事处"/>
+                        </div>
+                      </div>
+                    </li>
+                   
+                    
+                    <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">数量</div>
+                        <div class="item-input">
+                          <input type="number" name="invoiceQuantity" id="invoiceQuantity" placeholder="必填" min="1" value="{{invoiceDetail.invoiceQuantity}}">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">单价</div>
+                        <div class="item-input">
+                          <input type="text" name="invoiceUnitPrice" id="invoiceUnitPrice" value="{{invoiceDetail.invoiceUnitPrice}}" placeholder="必填">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                    
+                   <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">开票金额</div>
+                        <div class="item-input">
+                          <input type="text" id='tp' disabled placeholder="数量*单价=开票金额" value='{{invoiceDetail.invoicePrice}}'>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">开票内容</div>
+                          <div class="item-input">
+                            <input type="text"  readonly="readonly" name="invoiceElement" id='pickerInvoice' value="{{invoiceDetail.invoiceElement}}" placeholder="请选择开票内容">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="list-block">
+                  <ul>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">发票类型</div>
+                          <div class="item-input">
+                            <input type="text" readonly="readonly" id="invoiceTypeName"  class="invoiceType" value="{{invoiceDetail.invoiceTypeName}}" placeholder="增值税普通发票">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="list-block" id="plainInvoice_box" <!-- if {{invoiceDetail.invoiceType}}==1 --> style="display:none" <!-- endif -->>
+                  <ul>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">发票抬头</div>
+                          <div class="item-input">
+                            <textarea name="invoiceTitle"  >{{invoiceDetail.invoiceTitle}}</textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">纳税人识别码</div>
+                          <div class="item-input">
+                            <input type="text" name="TINT" id="TINT" value="{{invoiceDetail.TIN}}" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">注册地址</div>
+                          <div class="item-input">
+                            <textarea  name="addressT">{{invoiceDetail.address}}</textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">注册电话</div>
+                          <div class="item-input">
+                            <input type="text" value="{{invoiceDetail.phone}}" name="phoneT" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">开户银行</div>
+                          <div class="item-input">
+                          	<input type="text" name="bankT" id="bankT" value="{{invoiceDetail.bank}}" placeholder="">
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">银行账户</div>
+                          <div class="item-input">
+                            <input type="text" name="bankAccountT" id="bankAccountT" value="{{invoiceDetail.bankAccount}}" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">备注</div>
+                        <div class="item-input">
+                        <textarea name="remarkT" id="remarkT" placeholder="用于发票右下角备注栏内容，如项目名称、项目地点">{{invoiceDetail.remark}}</textarea>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                    
+                  </ul>
+                </div>
+                
+                
+                
+                <div class="list-block"  id="specialInvoice_box" <!-- if {{invoiceDetail.invoiceType}}==0 --> style="display:none" <!-- endif -->>
+                  <ul>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">单位名称</div>
+                          <div class="item-input">
+                            <textarea name="invoiceCompany" >{{invoiceDetail.invoiceCompany}}</textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">纳税人识别码</div>
+                          <div class="item-input">
+                            <input type="text" name="TIN" id="TIN" value="{{invoiceDetail.TIN}}" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">注册地址</div>
+                          <div class="item-input">
+                            <textarea  name="address">{{invoiceDetail.address}}</textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">注册电话</div>
+                          <div class="item-input">
+                            <input type="text" value="{{invoiceDetail.phone}}" name="phone" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">开户银行</div>
+                          <div class="item-input">
+                          	<input type="text" name="bank" id="bank" value="{{invoiceDetail.bank}}" placeholder="">
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">银行账户</div>
+                          <div class="item-input">
+                            <input type="text" name="bankAccount" id="bankAccount" value="{{invoiceDetail.bankAccount}}" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    
+                    <li>
+                    <div class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">备注</div>
+                        <div class="item-input">
+                        <textarea name="remark" id="remark" placeholder="用于发票右下角备注栏内容，如项目名称、项目地点" value="{{invoiceDetail.remark}}"></textarea>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                    
+                  </ul>
+                </div>
+                
+                
+                
+                <div class="content-block-title">邮寄信息</div>
+                <div class="list-block">
+                  <ul>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">是否邮寄</div>
+                          
+                          <div class="item-input">
+                            <input type="text" readonly="readonly"  id="doPostName" class="invoiceMail" placeholder="选择是否邮寄">
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </li>
+                     </ul>
+                </div>
+                    
+                    <div class="list-block" id="mail_box" <!-- if {{invoiceDetail.doPost}}==0 --> style="display:none" <!-- endif -->>
+                  <ul>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">收件人</div>
+                          <div class="item-input">
+                            <input type="text" name="recipients" id="recipients" value="{{invoiceDetail.recipients}}" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">手机/电话</div>
+                          <div class="item-input">
+                            <input type="text" name="recipientsPhone" id="recipientsPhone" value="{{invoiceDetail.recipientsPhone}}" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">收件地址</div>
+                          <div class="item-input">
+                            <textarea name="recipientsAddress" id="recipientsAddress" >{{invoiceDetail.recipientsAddress}}</textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">邮寄物品</div>
+                          <div class="item-input">
+                          	
+                          	
+                          	
+                          	
+                          	<label class="label-checkbox item-content">
+                            <input <!-- if !empty({{invoiceDetail.mailItemsJson.softLock}}) --> checked <!-- endif --> type="checkbox" name="softLock" value="1">
+                            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                            <div class="item-inner">
+                              <div class="item-subtitle">
+                                <span class="item-input-title">软件锁</span>
+                                
+                              </div>
+                            </div>
+                          </label>
+                          <div class="gw_num">
+                                  <em class="jian">-</em>
+                                  <input type="text" value="{{invoiceDetail.mailItemsJson.softLock}}" name="softLockNum" class="num"/>
+                                  <em class="add">+</em>
+                                </div>
+                          
+                          
+                          <label class="label-checkbox item-content">
+                            <input type="checkbox" name="my-checkbox" checked disabled>
+                            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                            <div class="item-inner">
+                              <div class="item-subtitle">发票<span class="ml-4">1</span></div>
+                            </div>
+                          </label>
+                          
+                          <label class="label-checkbox item-content">
+                            <input <!-- if !empty({{invoiceDetail.mailItemsJson.contract}}) --> checked <!-- endif --> type="checkbox" name="contract" value="1">
+                            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                            <div class="item-inner">
+                              <div class="item-subtitle">
+                                <span class="item-input-title">合同</span>
+                               
+                              </div>
+                            </div>
+                          </label>
+                           <div class="gw_num">
+                                  <em class="jian">-</em>
+                                  <input type="text" name="contractNum" value="{{invoiceDetail.mailItemsJson.contract}}" class="num"/>
+                                  <em class="add">+</em>
+                                </div>
+                          
+                          
+                          <label class="label-checkbox item-content">
+                            <input <!-- if !empty({{invoiceDetail.mailItemsJson.instructions}}) --> checked <!-- endif --> type="checkbox" name="instructions" value="1">
+                            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                            <div class="item-inner">
+                              <div class="item-subtitle">
+                                <span class="item-input-title">说明书</span>
+                                
+                              </div>
+                            </div>
+                          </label>
+                          <div class="gw_num">
+                                  <em class="jian">-</em>
+                                  <input type="text" value="{{invoiceDetail.mailItemsJson.instructions}}" name="instructionsNum" class="num"/>
+                                  <em class="add">+</em>
+                                </div>
+                          
+                          <label class="label-checkbox item-content">
+                 <input type="checkbox" name="remittance" <!-- if !empty({{invoiceDetail.mailItemsJson.remittance}}) --> checked <!-- endif --> value="1">
+                            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                            <div class="item-inner">
+                              <div class="item-subtitle">汇款账单号</div>
+                            </div>
+                          </label>
+                          <label class="label-checkbox item-content">
+                            <input type="checkbox" name="my-checkbox" checked disabled>
+                            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                            <div class="item-inner">
+                              <div class="item-subtitle height7">备注
+                               <textarea name="mailItems"  placeholder="备注信息或其他需要邮寄物品请填写在这，写明数量。">{{invoiceDetail.mailItemsJson.mailItems}}</textarea>
+                            </div>
+                          </label>
+                          
+                          
+                          
+                          
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                
+                
+                
+              </div>
+              
+              
+              
+              
+            </div>
+            
+            </form>
+            
+        </div>
+    </div>
+
+  </body>
+</html>

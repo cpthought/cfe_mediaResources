@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+                <html lang="zh-cn">
+                 <head> 
+                    <title>移动端-物流轨迹查询结果页面嵌入</title>
+                    <link rel="stylesheet" href="<?= WEB_SITE_GLOBAL ?>css/KDNWidget.css" />
+                 </head>
+                 <body>
+          
+
+               
+                      <script src="<?= WEB_SITE_GLOBAL ?>js/KDNWidget.js"></script>
+                      <script>
+                          window.onload = function () {
+                              KDNWidget.run({
+                                  serviceType: "A",
+                                  expCode: "{{expressCom}}",
+                                  expNo: "{{expressNumber}}",
+                              })
+                          }
+                    </script> 
+                   </body>
+                </html>
+
+
+

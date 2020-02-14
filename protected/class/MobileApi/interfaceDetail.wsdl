@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:CLDwsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:CLDwsdl">
+<types>
+<xsd:schema targetNamespace="urn:CLDwsdl"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+</xsd:schema>
+</types>
+<message name="registerRequest">
+  <part name="username" type="xsd:string" />
+  <part name="game_id" type="xsd:int" />
+  <part name="fromurl" type="xsd:string" />
+  <part name="advertiser" type="xsd:string" />
+  <part name="adFrom" type="xsd:string" />
+  <part name="adType" type="xsd:string" />
+  <part name="pageName" type="xsd:string" />
+  <part name="wordid" type="xsd:string" />
+  <part name="ip" type="xsd:string" />
+  <part name="registertime" type="xsd:time" /></message>
+<message name="registerResponse">
+  <part name="return" type="xsd:array" /></message>
+<message name="loginRequest">
+  <part name="user" type="xsd:string" />
+  <part name="pw" type="xsd:string" /></message>
+<message name="loginResponse">
+  <part name="return" type="xsd:array" /></message>
+<portType name="CLDwsdlPortType">
+  <operation name="register">
+    <input message="tns:registerRequest"/>
+    <output message="tns:registerResponse"/>
+  </operation>
+  <operation name="login">
+    <input message="tns:loginRequest"/>
+    <output message="tns:loginResponse"/>
+  </operation>
+</portType>
+<binding name="CLDwsdlBinding" type="tns:CLDwsdlPortType">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="register">
+    <soap:operation soapAction="urn:registerwsdl#register" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:registerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:registerwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="login">
+    <soap:operation soapAction="urn:loginwsdl#login" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:loginwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:loginwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="CLDwsdl">
+  <port name="CLDwsdlPort" binding="tns:CLDwsdlBinding">
+    <soap:address location="http://cld.com/index.php/api/interfaceDetail"/>
+  </port>
+</service>
+</definitions>

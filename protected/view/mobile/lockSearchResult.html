@@ -1,0 +1,34 @@
+<!-- include 'header' -->
+<body>
+	<div class="warpContent">
+			<legend><a href="/keyLibrary" class="fR">返回搜索</a>在线锁库</legend>
+			<div class="control-group">
+			    搜索“<span class="colRed">{{search}}</span>”结果 <span class="colRed">{{count}}</span> 条符合
+			</div>
+			
+			<div class="clientList">
+			<!-- loop longle -->
+				<div class="clientEntry searchResult">
+					<p><a href="/longle/detail/{{longle' value.lid}}">	{{longle' value.key_num}}</a> / {{longle' value.statusT}}</p>
+					<p class="">{{longle' value.product}}</p>
+					<p class="">{{longle' value.category}}</p>
+					<p class="">客户：<a href="/client/detail/{{longle' value.clientid}}">{{longle' value.client}}</a></p>
+				</div>
+			<!-- endloop -->
+				
+			</div>
+			<div class="pageNav">
+					<!-- if {{previous}}==0 -->
+					<span class="inactivePrev">《</span>
+					<!-- else -->
+					<a href="/searchLongle/{{search}}/{{previous}}">《</a>
+					<!-- endif -->
+					{{page}}
+					<!-- if {{next}}>{{onPage}}&&{{next}}<={{total_page}} -->
+					<a href="/searchLongle/{{search}}/{{next}}">》</a>
+					<!-- else -->
+					<span class="inactivePrev">》</span>
+					<!-- endif -->
+			</div>
+	</div>
+</body>

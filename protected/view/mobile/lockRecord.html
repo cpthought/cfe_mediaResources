@@ -1,0 +1,22 @@
+<!-- include 'header' -->
+<body>
+	<div class="warpContent">
+			<legend><a href="/" class="fR">返回搜索</a>在线锁库</legend>
+			<div class="clientEntry header clearfix">
+				<table>
+					<tbody>
+						<tr><th>锁号</th><td>{{longle.key_num}}</td></tr>
+						<tr><th>产品</th><td>{{longle.product}}</td></tr>
+						<tr><th>状态</th><td>{{longle.category}}<a href="/staffN/detail/{{longle.uresponsible}}">{{longle.responsible}}</a>{{longle.statusT}}</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="recordEntry clearfix hide">
+				<a href="#" class="button">添加记录</a>
+			</div>
+			
+			{{loginfo}}
+			
+			
+	</div>
+</body>

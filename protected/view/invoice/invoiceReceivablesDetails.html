@@ -1,0 +1,94 @@
+<!-- include 'header' -->
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav">
+            <a class="icon icon-left pull-left" href="/invoiceMyReceivables"></a>
+            <h1 class="title holidayTBg">我的收款</h1>
+          </header>
+            <!-- include 'invoiceNav' -->
+            <div class="content">
+              <div class="content-block pLR-n">
+              
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">收款流水号</div>
+                        <div class="item-after">{{invoiceReceivablesDetail.receivablesSerial}}</div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">收款金额</div>
+                        <div class="item-after">￥{{invoiceReceivablesDetail.receivablesPrice}}</div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">收款信息</div>
+                        <div class="item-after">{{invoiceReceivablesDetail.receivablesMessage}}</div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">收款银行</div>
+                        <div class="item-after">{{invoiceReceivablesDetail.receivablesBank}}</div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">银行到账时间</div>
+                        <div class="item-after">{{invoiceReceivablesDetail.receivablesDate}}</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                
+                <!-- if {{invoiceReceivablesDetail.iid}}!=0 -->
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">开票金额</div>
+                        <div class="item-after">￥{{invoiceDetail.invoicePrice}}</div>
+                      </div>
+                    </li>
+                    <a href="/invoiceDetails/{{invoiceDetail.iidKeyUrl}}.html" class="item-content item-link">
+                      <div class="item-inner">
+                        <div class="item-title">开票流水号</div>
+                        <div class="item-after">{{invoiceDetail.invoiceSerial}}</div>
+                      </div>
+                    </a>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">开票内容</div>
+                        <div class="item-after">{{invoiceDetail.invoiceElement}}</div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">发票抬头</div>
+                        <div class="item-after">
+                        
+                        <!-- if !empty({{invoiceDetail.invoiceType}}) -->
+	                             {{invoiceDetail.invoiceCompany}}
+	                     <!-- else -->
+	                             {{invoiceDetail.invoiceTitle}}
+	                     <!-- endif -->
+                        
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- endif -->
+                
+              </div>
+              
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>

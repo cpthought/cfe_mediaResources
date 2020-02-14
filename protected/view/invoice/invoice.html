@@ -1,0 +1,185 @@
+<!-- include 'header' -->
+
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav ">
+             
+              <h1 class="title holidayTBg">我的发票</h1>
+              <a class="button pull-right external" external href="/invoiceAdd">申请开票</a>
+          </header>
+           <!-- include 'invoiceNav' -->
+            <div class="content">
+              <div class="content-block tabTitleBox">
+                <div class="buttons-row">
+                  <a href="#tab1" class="tab-link active button tabBtnBig">待处理</a>
+                  <a href="#tab2" class="tab-link button tabBtnBig">已出票</a>
+                </div>
+              </div>
+              <div class="tabs">
+                <div id="tab1" class="tab active">
+                  <div class="content-block pLR-n">
+                  <!-- if !empty({{invoiceList.handleInvoice}}) -->
+                  <!-- loop invoiceList.handleInvoice -->
+                  <!-- if !({{pendingInvoice' value.status}}==2 and {{pendingInvoice' value.printStatus}}==1 and {{pendingInvoice' value.untreadStatus}}==0) -->
+                    <div class="list-block media-list" style="display:none">
+                      <ul>
+                        <li>
+                          <a href="/invoiceDetails/{{pendingInvoice' value.iidKeyUrl}}.html" class="item-link item-content">
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">开票金额
+                                	<!-- if !empty({{pendingInvoice' value.invoiceType}}) -->
+	                                   	【￥{{pendingInvoice' value.invoicePrice}}】专
+	                                <!-- else -->
+	                                   	【￥{{pendingInvoice' value.invoicePrice}}】
+	                                <!-- endif -->
+                                </div>
+                                <div class="item-after">
+                                	<!-- if {{pendingInvoice' value.status}}==3  -->
+									已退回
+									<!-- elseif {{pendingInvoice' value.status}}==4 -->
+									已终止
+									<!-- elseif {{pendingInvoice' value.status}}==2 and {{pendingInvoice' value.printStatus}}==1 and {{pendingInvoice' value.untreadStatus}}==2  -->
+									已退票
+									<!-- endif -->
+									
+									<!-- if {{pendingInvoice' value.status}}==2 and {{pendingInvoice' value.printStatus}}==0 and {{pendingInvoice' value.untreadStatus}}==0 -->
+										<span class="colBlue">出票中</span>
+										 <!-- elseif {{pendingInvoice' value.status}}==1 -->
+										 <span class="">审核中</span>
+										 
+										  <!-- elseif {{pendingInvoice' value.status}}==2 and {{pendingInvoice' value.printStatus}}==1 and {{handleInvoice' value.untreadStatus}}==2  -->
+										<span class="colRed">已退票</span>
+										
+										 <!-- endif -->
+									
+                                </div>
+                              </div>
+                              <div class="item-subtitle">
+							<!-- if !empty({{pendingInvoice' value.invoiceType}}) -->
+	                                   	{{pendingInvoice' value.invoiceCompany}}
+	                                    <!-- else -->
+	                                    {{pendingInvoice' value.invoiceTitle}}
+	                                    <!-- endif -->
+							</div>
+                              <div class="item-text">处理时间：{{invoiceList' value.OperationLog.username}} {{invoiceList' value.OperationLog.date}}</div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- endif -->
+                   <!-- endloop -->
+                    <!-- endif -->
+                    
+                    
+                    <!-- if !empty({{invoiceList.pendingInvoice}}) -->
+                    <!-- loop invoiceList.pendingInvoice -->
+                  
+                    <div class="list-block media-list">
+                      <ul>
+                        <li>
+                          <a href="/invoiceDetails/{{pendingInvoice' value.iidKeyUrl}}.html" class="item-link item-content">
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">开票金额
+                                	<!-- if !empty({{pendingInvoice' value.invoiceType}}) -->
+	                                   	【￥{{pendingInvoice' value.invoicePrice}}】专
+	                                <!-- else -->
+	                                   	【￥{{pendingInvoice' value.invoicePrice}}】
+	                                <!-- endif -->
+                                </div>
+                                <div class="item-after">
+                                
+                                <!-- if {{pendingInvoice' value.status}}==3  -->
+									已退回
+									<!-- elseif {{pendingInvoice' value.status}}==1 -->
+										 <span class="">审核中</span>
+								<!-- elseif {{pendingInvoice' value.status}}==2 and {{pendingInvoice' value.printStatus}}==0 and {{pendingInvoice' value.untreadStatus}}==0 -->
+										<span class="colBlue">出票中</span>
+									<!-- elseif {{pendingInvoice' value.status}}==4 -->
+									已终止
+									<!-- elseif {{pendingInvoice' value.status}}==2 and {{pendingInvoice' value.printStatus}}==1 and {{pendingInvoice' value.untreadStatus}}==2  -->
+									已退票
+									 <!-- elseif {{pendingInvoice' value.status}}==2  and {{pendingInvoice' value.untreadStatus}}==1 -->
+									<span >退票中</span>
+									<!-- endif -->
+                                
+                                
+                                	
+                                </div>
+                              </div>
+                              <div class="item-subtitle">
+							<!-- if !empty({{pendingInvoice' value.invoiceType}}) -->
+	                                   	{{pendingInvoice' value.invoiceCompany}}
+	                                    <!-- else -->
+	                                    {{pendingInvoice' value.invoiceTitle}}
+	                                    <!-- endif -->
+							</div>
+                              <div class="item-text">处理时间：{{invoiceList' value.OperationLog.username}} {{invoiceList' value.OperationLog.date}}</div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                   <!-- endloop -->
+                    <!-- endif -->
+                  </div>
+                </div>
+                <div id="tab2" class="tab">
+                  <div class="content-block pLR-n">
+                  
+                   <!-- if !empty({{invoiceList.handleInvoice}}) -->
+                  <!-- loop invoiceList.handleInvoice -->
+                  
+                    <div class="list-block media-list">
+                      <ul>
+                        <li>
+                          <a href="/invoiceDetails/{{pendingInvoice' value.iidKeyUrl}}.html" class="item-link item-content">
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">开票金额
+                                	<!-- if !empty({{pendingInvoice' value.invoiceType}}) -->
+	                                   	【￥{{pendingInvoice' value.invoicePrice}}】专
+	                                <!-- else -->
+	                                   	【￥{{pendingInvoice' value.invoicePrice}}】
+	                                <!-- endif -->
+                                </div>
+                                <div class="item-after">
+									<!-- if {{pendingInvoice' value.status}}==2 and {{pendingInvoice' value.printStatus}}==1   -->
+										已出票
+										<!-- if {{pendingInvoice' value.doPost}}==1 -->
+										/邮寄
+										<!-- endif -->
+									<!-- endif -->
+                                </div>
+                              </div>
+                              <div class="item-subtitle">
+							<!-- if !empty({{pendingInvoice' value.invoiceType}}) -->
+	                            {{pendingInvoice' value.invoiceCompany}}
+	                        <!-- else -->
+	                            {{pendingInvoice' value.invoiceTitle}}
+	                        <!-- endif -->
+							</div>
+                              <div class="item-text">处理时间：{{invoiceList' value.OperationLog.username}} {{invoiceList' value.OperationLog.date}}</div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                   <!-- endloop -->
+                    <!-- endif -->
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+       
+  </body>
+</html>

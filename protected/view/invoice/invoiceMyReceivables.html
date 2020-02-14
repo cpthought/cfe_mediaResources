@@ -1,0 +1,80 @@
+<!-- include 'header' -->
+<script type='text/javascript' src='<?= WEB_SITE_GLOBAL ?>js/invoice.js' charset='utf-8'></script>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav">
+              <h1 class="title holidayTBg">我的收款</h1>
+              <div class="pull-right invoiceBtn">
+                <a class="button" href="/invoiceReceivablesClaim">收款认领</a>
+                <!-- if !empty({{ascriptionQuantity(staff.0.cid)}}) -->
+                <span class="badge">{{ascriptionQuantity(staff.0.cid)}}</span>
+                <!-- endif -->
+              </div>
+          </header>
+            <!-- include 'invoiceNav' -->
+            <div class="content">
+              <div class="content-block tabTitleBox">
+                <div class="buttons-row">
+                  <a href="#tab1" class="tab-link active button tabBtnBig">待入账</a>
+                  <a href="#tab2" class="tab-link button tabBtnBig">已入账</a>
+                </div>
+              </div>
+              <div class="tabs">
+                <div id="tab1" class="tab active">
+                  <div class="content-block pLR-n">
+                  <!-- if !empty({{list.myClaim}}) -->
+                  <!-- loop list.myClaim -->
+                    <div class="list-block media-list">
+                      <ul>
+                        <li>
+                          <a href="/invoiceReceivablesDetails/{{myClaim' value.iridKeyUrl}}.html" class="item-link item-content">
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">收款金额【￥{{myClaim' value.receivablesPrice}}】</div>
+                              </div>
+                              <div class="item-subtitle">银行账号信息：{{myClaim' value.receivablesMessage}}</div>
+                              <div class="item-text">到账时间：{{myClaim' value.receivablesDate}}</div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- endloop -->
+                    <!-- endif -->
+                  </div>
+                </div>
+                <div id="tab2" class="tab">
+                  <div class="content-block pLR-n">
+                  
+                  <!-- if !empty({{list.bindClaim}}) -->
+                  <!-- loop list.bindClaim -->
+                    <div class="list-block media-list">
+                      <ul>
+                        <li>
+                          <a href="/invoiceReceivablesDetails/{{bindClaim' value.iridKeyUrl}}.html" class="item-link item-content">
+                            <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">收款金额【￥{{bindClaim' value.receivablesPrice}}】</div>
+                              </div>
+                              <div class="item-subtitle">银行账号信息：{{bindClaim' value.receivablesMessage}}</div>
+                              <div class="item-text">到账时间：{{myClaim' value.receivablesDate}}</div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                     <!-- endloop -->
+                    <!-- endif -->
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+       
+  </body>
+</html>

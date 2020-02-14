@@ -1,0 +1,100 @@
+<!-- include 'header' -->
+<script type='text/javascript' src='/ajaxGetRelevantInvoice/{{now}}.js' charset='utf-8'></script>
+<script type='text/javascript' src='<?= WEB_SITE_GLOBAL ?>js/invoice.js?m=112' charset='utf-8'></script>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav">
+              <a class="icon icon-left pull-left" href="/invoiceDetails/{{invoiceDetail.iidKeyUrl}}.html"></a>
+              <h1 class="title holidayTBg">我的发票</h1>
+          </header>
+            <!-- include 'invoiceNav' -->
+            
+            <form action="/invoiceUntreadDo" method="post"  id="invoiceUntread" >
+             <input type="hidden" name="untreadIidKey" id="iidKey" value="{{invoiceDetail.iidKeyUrl}}">
+           <input type="hidden" name="untreadPost"  id="doPost" value="1">
+            <input type="hidden" name="untreadCompany"  id="untreadCompany" value="顺丰速运:shunfeng">
+            
+            <div class="bar bar-header-secondary barBig">
+              <div class="row" style="overflow: inherit;">
+                <div class="col-50"><a href="/invoiceDetails/{{invoiceDetail.iidKeyUrl}}.html" class="button button-big button-block button-fill button-danger">取消</a></div>
+                
+                <div class="col-50"><button type="submit" class="button button-big button-block button-fill button-success" data-toggle="modal">确认退票</button></div>
+              </div>
+            </div>
+            <div class="content">
+            
+              <div class="content-block pLR-n">
+                <div class="list-block">               
+                  <ul>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">退票原因</div>
+                          <div class="item-input">
+                            <textarea name="untreadReason" id="untreadReason" value=""></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-inner">
+                          <div class="item-title label">是否邮寄</div>
+                          <div class="item-input">
+                            <input type="text" readonly="readonly" id="doPostName" value="是" class="invoiceMail" placeholder="选择是否邮寄">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="content-block-title">邮寄信息</div>
+                
+                <div class="list-block" id="mail_box">
+                  <ul>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">快递公司</div>
+                          <div class="item-input">
+                            <input type="text" readonly="readonly" id="untreadCompanyName" value="顺丰速运" class="invoiceExpress" placeholder="选择快递公司">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">快递单号</div>
+                          <div class="item-input">
+                            <input type="text" name="untreadNumber" id="untreadNumber" placeholder="">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content align-top">
+                        <div class="item-inner">
+                          <div class="item-title label">邮寄物品</div>
+                          <div class="item-input">
+                            <textarea name="untreadItems" id="untreadItems"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                  </ul>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        </form>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!-- include 'header' -->
+<body>
+	<div class="warpContent">
+			<legend><a href="/addressBook" class="fR">返回搜索</a>通讯录</legend>
+			<div class="control-group">
+			    搜索“<span class="colRed">{{search}}</span>”结果 <span class="colRed">{{count}}</span> 条符合
+			</div>
+			<div class="clientList">
+			<!-- loop clientInfo -->
+				<div class="clientEntry searchResult">
+					<p><a href="/client/detail/{{clientInfo' value.cid}}">{{clientInfo' value.clientname}}</a> / {{clientInfo' value.nicename}} / {{clientInfo' value.position}}</p>
+					<p class="">{{clientInfo' value.local}}</p>
+					<p class="">{{clientInfo' value.companyname}}</p>
+					<p class="">{{clientInfo' value.telephone}}</p>
+					<p>{{clientInfo' value.staff.category}}<a href="/staff/detail/{{clientInfo' value.staff.sid}}">{{clientInfo' value.staff.username}}</a>添加</p>
+				</div>
+			<!-- endloop -->	
+			</div>
+			<div class="pageNav">
+					<!-- if {{previous}}==0 -->
+					<span class="inactivePrev">《</span>
+					<!-- else -->
+					<a href="/searchClient/{{search}}/{{previous}}">《</a>
+					<!-- endif -->
+					{{page}}
+					<!-- if {{next}}>{{onPage}}&&{{next}}<={{total_page}} -->
+					<a href="/searchClient/{{search}}/{{next}}">》</a>
+					<!-- else -->
+					<span class="inactivePrev">》</span>
+					<!-- endif -->
+			</div>
+	</div>
+</body>

@@ -1,0 +1,111 @@
+<!-- include 'header' -->
+<script type='text/javascript' src='<?= WEB_SITE_GLOBAL ?>js/invoice.js?m=389' charset='utf-8'></script>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav">
+              <a class="icon icon-left pull-left" href="/invoiceReceivablesClaim"></a>
+              <h1 class="title holidayTBg">收款详情</h1>
+          </header>
+            <!-- include 'invoiceNav' -->
+            
+            <form action="/invoiceReceivablesAscriptionDo" id="invoiceReceivablesAscription" method="post">
+				<input type="hidden" name="key" value="{{receivables.iridKey}}">
+            
+            <div class="bar bar-header-secondary barBig">
+              <div class="row" style="overflow: inherit;">
+                <!-- <div class="col-50"><a href="/invoiceReceivablesClaim" class="button button-big button-block button-fill button-light">返回</a></div> -->
+                <div class="col-100">
+                <input type="submit" node-tao  class="button button-big button-block button-success" data-toggle="modal" value="确定认领">
+                
+                </div>
+                <!-- <div class="col-100"><a href="" class="button button-big button-block button-success button-fill">确定收款</a></div> -->
+              </div>
+            </div>
+            <div class="content">
+              <div class="content-block pLR-n">
+
+                <div class="content-block-title">单位名称（<b style="color:#f00;">必填</b>）</div>
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="card-content">
+                          <textarea class="myinput" node-tanClass name="recepitTitleMark" id="recepitTitleMark" placeholder="请输入开票单位名称"></textarea>
+                          
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">收款流水号</div>
+                        <div class="item-after">{{receivables.receivablesSerial}}</div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">录入收款</div>
+                        <div class="item-after">{{receivables.inputStaff}}&nbsp;{{receivables.date}}</div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">收款金额</div>
+                        <div class="item-after">￥{{receivables.receivablesPrice}}</div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">收款信息</div>
+                        <div class="item-after">{{receivables.receivablesMessage}}</div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">银行到帐</div>
+                        <div class="item-after">{{receivables.receivablesDate}}</div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">收款银行</div>
+                        <div class="item-after">{{receivables.receivablesBank}}</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- <div class="content-block-title">收款银行</div>
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="card-content">
+                          <div class="card-content-inner card-content-inner-lnot">
+                              {{receivables.receivablesBank}}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div> -->
+                
+                
+              </div>
+            </div>
+            
+            
+            </form>
+            
+            
+            
+            
+        </div>
+    </div>
+
+  </body>
+</html>

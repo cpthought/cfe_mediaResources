@@ -1,0 +1,243 @@
+<!-- include 'header' -->
+  <script type='text/javascript' src='<?= WEB_SITE_GLOBAL ?>js/invoice.js' charset='utf-8'></script>
+  
+  
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav">
+            <a class="icon icon-left pull-left" href="/invoicePrint"></a>
+            <h1 class="title holidayTBg">发票打印</h1>
+          </header>
+            <!-- include 'invoiceNav' -->
+            <form action="/invoicePrintDo" method="post"  name="invoicePrint">
+            
+            <!-- if {{invoiceDetail.printStatus}}==0 -->
+            <div class="bar bar-header-secondary barBig">
+              <div class="row" style="overflow: inherit;">
+                <div class="col-100">
+                
+                <a href="javascript:void(0)" class="button button-big button-block button-fill button-success  invoicePrintCheck" >打印发票</a>
+                
+                
+                
+                
+                </div>
+              </div>
+            </div>
+            <!-- endif -->
+            
+            <div class="content">
+            
+            
+            
+            
+            <input type="hidden" name="invoiceKey" value="{{INVOICEKEY}}">
+            
+              <div class="list-block">
+                <ul>
+                  <li class="item-content align-top">
+                    <div class="item-inner">
+                      <div class="item-title label"><b class="colorRed">*</b> No.</div>
+                      <!-- if {{invoiceDetail.printStatus}}==0 -->
+                      <div class="item-input">
+                      
+                        <input type="number" name="invoiceNo" value=""  class="myinput">
+                      </div>
+                       <!-- else -->
+                        <div class="item-after">{{invoiceDetail.invoiceNo}}</div>
+                        
+                        <!-- endif -->
+                      
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="list-block">
+              
+              
+              
+                <ul>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">开票流水号</div>
+                      <div class="item-after">{{invoiceDetail.invoiceSerial}}</div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">提交时间</div>
+                      <div class="item-after">{{invoiceDetail.date}}</div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">所在办事处</div>
+                      <div class="item-after">{{invoiceDetail.categoryName}}（{{invoiceDetail.userName}}）</div>
+                    </div>
+                  </li>
+                  
+                  
+                  <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">数量</div>
+                        <div class="item-after"><b>￥{{invoiceDetail.invoiceQuantity}}</b></div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title">单价</div>
+                        <div class="item-after"><b>￥{{invoiceDetail.invoiceUnitPrice}}</b></div>
+                      </div>
+                    </li>
+                  
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">开票金额</div>
+                      <div class="item-after"><b>￥{{invoiceDetail.invoicePrice}}</b></div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">开票内容</div>
+                      <div class="item-after">{{invoiceDetail.invoiceElement}}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="content-block-title">
+              <!-- if {{invoiceDetail.invoiceType}}==0 -->
+              增值税普通发票
+              <!-- else -->
+              增值税专用发票
+              <!-- endif -->
+              </div>
+              <div class="list-block">
+                <ul>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">单位名称</div>
+                      <div class="item-after">
+                      
+                      <!-- if {{invoiceDetail.invoiceType}}==0 -->
+		              {{invoiceDetail.invoiceTitle}}
+		              <!-- else -->
+		              {{invoiceDetail.invoiceCompany}}
+		              <!-- endif -->
+                      
+                      </div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">纳税人识别码</div>
+                      <div class="item-after">{{invoiceDetail.TIN}}</div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">注册电话</div>
+                      <div class="item-after">{{invoiceDetail.phone}}</div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">注册地址</div>
+                      <div class="item-after">{{invoiceDetail.address}}</div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">开户银行</div>
+                      <div class="item-after">{{invoiceDetail.bank}}</div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">银行账户</div>
+                      <div class="item-after">{{invoiceDetail.bankAccount}}</div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">备注</div>
+                      <div class="item-after">{{invoiceDetail.remark}}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              
+              
+             
+              <!-- if {{invoiceDetail.doPost}}==1 -->
+              <div class="content-block-title">邮寄信息</div>
+              <div class="list-block">
+                <ul>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">收件人</div>
+                      <div class="item-after">{{invoiceDetail.recipients}}</div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">收件人手机/电话</div>
+                      <div class="item-after">{{invoiceDetail.recipientsPhone}}</div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">收件地址</div>
+                      <div class="item-after">{{invoiceDetail.recipientsAddress}}</div>
+                    </div>
+                  </li>
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">邮寄物品</div>
+                      <div class="item-after">{{invoiceDetail.mailItems}}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- endif -->
+              
+              <div class="content-block-title">审批流程</div>
+              <div class="list-block">
+                <ul>
+                <!-- loop invoiceOperationLogList -->
+                  <li class="item-content">
+                    <div class="item-inner">
+                      <div class="item-title">{{invoiceOperationLogList' value.category}}-{{invoiceOperationLogList' value.username}}</div>
+                      <div class="item-after">
+                      <!-- if {{invoiceOperationLogList' value.status}}==2 -->
+										<span class="colGreen">同意</span>
+										<!-- elseif {{invoiceOperationLogList' value.status}}==3 -->
+										<span class="colOrange">退回</span>
+										<!-- elseif {{invoiceOperationLogList' value.status}}==4 -->
+										<span class="colRed">终止</span>
+										<!-- elseif {{invoiceOperationLogList' value.status}}==5 -->
+										<span class="colGreen">打印</span>
+										<!-- endif -->
+                      {{invoiceOperationLogList' value.operation}}  {{invoiceOperationLogList' value.date}}</div>
+                    </div>
+                  </li>
+               <!-- endloop -->
+                  
+                </ul>
+              </div>
+              
+              
+              
+             
+              
+              
+            </div>
+            
+             </form>
+            
+        </div>
+    </div>
+
+  </body>
+</html>

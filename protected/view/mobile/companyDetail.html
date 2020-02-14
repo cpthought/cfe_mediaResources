@@ -1,0 +1,65 @@
+<!-- include 'header' -->
+<body>
+	<div class="warpContent">
+			<legend><a href="/addressBook" class="fR">返回搜索</a>通讯录</legend>
+			<div class="tabList">
+				<a class="now" id="CD" href="javascript:void(0)" onclick="clientDetailTab()">单位信息</a><a id="SD" href="javascript:void(0)" onclick="serviceDetailTab()">单位客户</a>
+			</div>
+			<div class="tabContent">
+				<div id="clientList" class="tabItem clientList ">
+					<div class="clientEntry">
+		  				<table>
+		  					<tbody><tr><th>单位</th><td>{{company.companyname}}</td></tr>
+		  					<tr><th>性质</th><td>{{company.nature}}</td></tr>
+		  					<tr><th>地区</th><td>{{company.local}}</td></tr>
+		  					<tr><th>传真</th><td>{{company.fax}}</td></tr>
+		  					<tr><th>主页</th><td>{{company.webservice}}</td></tr>
+		  					<tr><th>地址</th><td>{{company.address}}</td></tr>
+		  					<tr><th>乘车</th><td>{{company.ride}}</td></tr>
+		  					<tr><th>地标</th><td>{{company.landmarks}}<a title="查看地图" href="#"><img src="img/map.png"></a></td></tr>
+		  					<tr><th>客户</th><td>{{count}}人</td></tr>
+		  				</tbody></table>
+			  		</div>
+				</div>
+				<div id="clentRecord" class="tabItem clearfix hide">
+					<div class="clientEntry header">
+		  				<table>
+		  					<tbody><tr><th colspan="2">{{company.companyname}}</th></tr>
+		  					<tbody><tr><th>客户</th><td>{{count}}人</td></tr>
+		  				</tbody></table>
+			  		</div>
+			  		<!-- loop clientList -->
+					<div class="clientEntry">
+		  				<table>
+		  				<tbody>
+		  					<tr><th>姓名</th><td><a href="/client/detail/{{client' value.cid}}">{{client' value.clientname}}</a></td></tr>
+		  					<tr><th>部门</th><td>{{client' value.department}}</td></tr>
+		  					<tr><th>职务</th><td>{{client' value.position}}</td></tr>
+		  					<tr><th>办公室</th><td>{{client' value.office}}</td></tr>
+		  					<tr><th>性别</th><td>{{client' value.gender}}</td></tr>
+		  					<tr><th>昵称</th><td>{{client' value.nicename}}</td></tr>
+		  					<tr><th>手机</th><td>{{client' value.telephone}}</td></tr>
+		  					<tr><th>电话</th><td>{{client' value.phone}}</td></tr>
+		  					<tr><th>QQ</th><td>{{client' value.qq}}</td></tr>
+		  					<tr><th>邮箱</th><td>{{client' value.email}}</td></tr>
+		  					<tr><th>锁</th><td>{{client' value.longleHtml}}</td></tr>
+		  					<tr><td colspan="2">
+		  					<!-- loop clientList' value.taginfo -->
+		  					<span class="contactsTag tagCol-0{{taginfo' value' value.colorid}}">{{taginfo' value' value.name}}</span>
+		  					<!-- endloop -->
+		  					<!-- loop clientList' value.toollist -->
+		  					<!-- if !empty({{toollist' value' value}}) -->
+		  					<i class="contactsMark icon-">{{toollist' value' value}}</i>
+		  					<!-- endif -->
+		  					<!-- endloop -->
+		  					</td></tr>
+		  					<tr><th>添加</th><td>{{toollist' value.staff.category}}<a href="/staff/detail/{{toollist' value.staff.sid}}">{{toollist' value.staff.username}}</a></td></tr>
+		  				</tbody>
+		  				</table>
+		  			</div>
+		  			<!-- endloop -->
+					
+				</div>
+			</div>
+	</div>
+</body>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang=zh-cn> 
+<head>
+	<meta charset=utf-8> 
+	<title>CLD.System</title> 
+	<meta name=description content=电子版晴雨表，在线晴雨表，网页晴雨表> 
+	<link rel="shortcut icon" href="images/favicon.ico"> 
+	<meta name=copyright content=smartcost.com.cn> 
+	<link rel=stylesheet href="http://cld.com/global/css/global.css"> 
+	<script src="http://cld.com/global/js/jquery-1.7.1.min.js"></script> 
+	<script src="http://cld.com/global/js/global.js"></script>
+</head>
+<script src="http://cld.com/global/js/receipt.js"></script>
+<body>
+	<div class="mainLayout">
+		<div class="mainMenu">
+			<div class="menuItem">
+				<a href="#" class="mLogo">CLD</a>
+				<ul>
+					<li data-placement="right" data-toggle="ctooltip" data-original-title="信息中心" class="topLine"><a href="/" class="icon- " >B</a></li>
+<li data-placement="right" data-toggle="ctooltip" data-original-title="通讯录"><a href="/contacts" class="icon-">A</a></li>
+<li data-placement="right" data-toggle="ctooltip" data-original-title="在线锁库"><a href="/keyonline" class="icon- ">C</a></li>
+<li data-placement="right" data-toggle="ctooltip" data-original-title="APP" class="topLine">
+<a href="/app" class="icon- ">Y</a></li>
+<li class="hide"><a href="#" class="icon-">E</a></li>
+<li class="hide"><a href="#" class="icon-">D</a></li>
+<li data-placement="right" data-toggle="ctooltip" data-original-title="邮件推广">
+<a href="/eMailTask" class="icon- ">Z</a></li>
+<li data-placement="right" data-toggle="ctooltip" data-original-title="报销单"    ><a href="/myReceipt" class="icon-  selected ">U</a></li> 
+
+<li data-placement="right" data-toggle="ctooltip" data-original-title="个人设置" ><a href="/adminlock" class="icon- ">F</a></li>
+<li data-placement="right" data-toggle="ctooltip" data-original-title="退出系统"><a href="/out" class="icon-">G</a></li>
+
+
+				</ul>
+			</div>
+		</div>
+		<div class="warpContent">
+			<div class="subMenu fL">
+				<div class="menuItem">
+					<ul>
+						<ul>
+						<li class="saeaTitle">报销单</li>
+						<li><a  href="/myReceipt">我的报销单</a></li>
+						<li><a href="/personalCollect" >个人汇总</a></li>
+						<li><a href="/referReceipt" >创建报销单</a></li>
+						
+								
+				<li class="topLine "><a   href="/approval">报销单审批</a></li>
+								<li><a href="/companyCategoryCollect"  class="selected"  >公司汇总</a></li>
+												</ul>					</ul>
+				</div>
+			</div>
+			<div class="adminContent autoHeight" style="height: 821px;">
+				<legend><div class="fL"></div>员工 全年报销单汇总</legend>
+				<div class="demandCate">
+					<form action="/staffCollect" id="up" method="post">
+<ul class="cateList">
+	<li><a href="/companyCategoryCollect">按办事处</a><a href="/staffCollect"
+		class="now">按员工</a></li>
+	<li><select name="year" id="Y" onchange="receiptYear();">
+	  					<option  value="2014"  >2014</option>
+<option  selected  value="2015">2015</option>
+<option  value="2016">2016</option>
+<option  value="2017">2017</option>	  					</select> 
+	  </li>
+
+	<li>报销总计：￥52600.00</li>
+	<li>同意支付：<span class="colGreen">￥50000.00</span></li>
+	<li>审批中：￥2600</li>
+</ul>
+</form>
+	  		</div>
+	  		<div class="saeaList">
+	  			<div class="entry">	  			    
+	  				<table class="table table-bordered table-condensed table-hover">
+	  					<tbody>
+	  						<tr>
+	  						<th  class="taC"></th>
+	  						<th width="110" class="taC">员工/月</th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/1">1月</a></th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/2">2月</a></th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/3">3月</a></th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/4">4月</a></th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/5">5月</a></th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/6">6月</a></th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/7">7月</a></th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/8">8月</a></th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/9">9月</a></th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/10">10月</a></th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/11">11月</a></th>
+	  						<th class="taC" width="80"><a href="/staffCollectMonthDetail/2015/12">12月</a></th>
+	  						<th class="taC" width="110">总计</th>
+	  						</tr>
+	  							  						<tr>
+	  						<th rowspan="5">安徽办</th><td><a href="/staffCollectDetail/陈帅">陈帅</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/范月光">范月光</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/林森">林森</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/xmlwww">xmlwww</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<th class="taR">小计</th><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td>	  						</tr>
+	  							  						<tr>
+	  						<th rowspan="5">甘肃办</th><td><a href="/staffCollectDetail/王涛">王涛</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/苟彦刚">苟彦刚</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/舒媚">舒媚</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/李满花">李满花</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<th class="taR">小计</th><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td>	  						</tr>
+	  							  						<tr>
+	  						<th rowspan="6">广东办</th><td><a href="/staffCollectDetail/刘飞">刘飞</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/王洪生">王洪生</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/姜栋">姜栋</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/刘庆">刘庆</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/封冬梅">封冬梅</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<th class="taR">小计</th><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td>	  						</tr>
+	  							  						<tr>
+	  						<th rowspan="3">广西办</th><td><a href="/staffCollectDetail/黄巾桃">黄巾桃</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/陈叶婷">陈叶婷</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<th class="taR">小计</th><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td>	  						</tr>
+	  							  						<tr>
+	  						<th rowspan="4">江西办</th><td><a href="/staffCollectDetail/祝海宾">祝海宾</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/王文鹏">王文鹏</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/蔡晚君">蔡晚君</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<th class="taR">小计</th><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td>	  						</tr>
+	  							  						<tr>
+	  						<th rowspan="4">四川办</th><td><a href="/staffCollectDetail/罗杰">罗杰</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/全冰">全冰</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/汪琴">汪琴</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<th class="taR">小计</th><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td>	  						</tr>
+	  							  						<tr>
+	  						<th rowspan="6">重庆办</th><td><a href="/staffCollectDetail/王星植">王星植</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/张文远">张文远</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/方淑静">方淑静</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/李清学">李清学</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/周洪波">周洪波</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<th class="taR">小计</th><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td>	  						</tr>
+	  							  						<tr>
+	  						<th rowspan="5">内蒙办</th><td><a href="/staffCollectDetail/罗发明">罗发明</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/孙燕娇">孙燕娇</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/张晓娟">张晓娟</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/杨卫东">杨卫东</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<th class="taR">小计</th><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td>	  						</tr>
+	  							  						<tr>
+	  						<th rowspan="18">总部</th><td><a href="/staffCollectDetail/谭玉堂">谭玉堂</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/何银龄">何银龄</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/张引">张引</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/杨福芳">杨福芳</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/赵淑燕">赵淑燕</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/陈世龙">陈世龙</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/冷淑梅">冷淑梅</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/麦心蓉">麦心蓉</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/陈特">陈特</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/任杰">任杰</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/蔡频">蔡频</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">￥50000.00</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥50000</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/王晶">王晶</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/张少珊">张少珊</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/黄爱玲">黄爱玲</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/欧汝">欧汝</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/付青青">付青青</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<td><a href="/staffCollectDetail/王丰">王丰</a></td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen"><b>￥0</b></td>	  						</tr>
+	  							  						<tr>
+	  						<th class="taR">小计</th><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥50000</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td><td class="taR">￥0</td>
+				<td class="taR">￥0</td><td class="taR">￥50000</td>	  						</tr>
+	  							  						
+	  						<tr><th></th>
+	  						<td class="taR">合计</td>
+	  						<td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">￥50000</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR">-</td><td class="taR colGreen">￥50000</td>							</tr>
+	  						<tr class="warning"><th></th><td class="taR"><b>全年费用合计</b></td><td colspan="13" class="colGreed taR"><b style="font-size:24px">￥50000</b></td></tr>
+	  						</tbody>
+	  					</table>
+	  			</div>
+			</div>
+		</div>
+	</div>
+	
+<script type="text/javascript">autoFlashHeight();</script>	
+</body>

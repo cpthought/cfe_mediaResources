@@ -1,0 +1,63 @@
+<!-- include 'header' -->
+<body>
+	<div class="warpContent">
+			<legend><a href="/addressBook" class="fR">返回搜索</a>通讯录</legend>
+			<div class="tabList">
+				<a class="now" id="CD" href="javascript:void(0)" onclick="clientDetailTab()" >客户信息</a><a id="SD" href="javascript:void(0)" onclick="serviceDetailTab()" >服务记录</a>
+			</div>
+			<div class="tabContent">
+				<div id="clientList" class="tabItem clientList">
+					<div class="clientEntry">
+		  				<table>
+		  				<tbody>
+		  					<tr><th>姓名</th><td>{{clientInfo.clientname}}</td></tr>
+		  					<tr><th>性别</th><td>{{clientInfo.gender}}</td></tr>
+		  					<tr><th>昵称</th><td>{{clientInfo.nicename}}</td></tr>
+		  					<tr><th>手机</th><td>{{clientInfo.telephone}}</td></tr>
+		  					<tr><th>电话</th><td>{{clientInfo.phone}}</td></tr>
+		  					<tr><th>QQ</th><td>{{clientInfo.qq}}</td></tr>
+		  					<tr><th>邮箱</th><td>{{clientInfo.email}}</td></tr>
+		  					<tr><th>锁</th><td>{{longleHtml}}</td></tr>
+		  					<tr><td colspan="2">
+		  					<!-- loop taginfo  -->
+		  					<span class="contactsTag tagCol-0{{taginfo' value.colorid}}">{{taginfo' value.name}}</span>
+		  					<!-- endloop -->
+		  					
+		  					<!-- loop toollist -->
+		  					<!-- if !empty({{toollist' value}}) -->
+		  					<i class="contactsMark icon-">{{toollist' value}}</i>
+		  					<!-- endif -->
+		  					<!-- endloop --></td></tr>
+		  					<tr><th>添加</th><td>{{staffList.category}}<a href="/staff/detail/{{staffList.sid}}">{{staffList.username}}</a></td></tr>
+		  				</tbody>
+		  				</table>
+			  		</div>
+					<div class="clientEntry">
+		  				<table>
+		  					<tbody><tr><th>单位</th><td><a href="/company/detail/{{companyInfo.cid}}">{{companyInfo.companyname}}</a></td></tr>
+		  					<tr><th>性质</th><td>{{companyInfo.nature}}</td></tr>
+		  					<tr><th>地区</th><td>{{companyInfo.local}}</td></tr>
+		  					<tr><th>传真</th><td>{{companyInfo.fax}}</td></tr>
+		  					<tr><th>主页</th><td>{{companyInfo.webservice}}</td></tr>
+		  					<tr><th>部门</th><td>{{companyInfo.department}}</td></tr>
+		  					<tr><th>职务</th><td>{{companyInfo.position}}</td></tr>
+		  					<tr><th>办公室</th><td>{{companyInfo.office}}</td></tr>
+		  					<tr><th>地址</th><td>{{companyInfo.address}}</td></tr>
+		  					<tr><th>乘车</th><td>{{companyInfo.ride}}</td></tr>
+		  					<tr><th>地标</th><td>{{companyInfo.landmarks}} <a title="查看地图" class="hide" href="#"><img src="img/map.png"></a></td></tr>
+		  				</tbody></table>
+			  		</div>
+					<div class="clientEntry clearfix hide">
+						<a href="clientDetailEdit.html" class="button">编辑</a>
+					</div>
+				</div>
+				
+				<div id="clentRecord" class="tabItem clentRecord hide">
+					<div class="recordEntry clearfix hide">
+						<a href="clientRecordEdit.html" class="button">添加记录</a>
+					</div>
+					{{serviceHtml}}
+				</div>
+			</div>
+	</div>
+</body>

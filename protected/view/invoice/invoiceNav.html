@@ -1,0 +1,30 @@
+
+<nav class="bar bar-tab" >
+	<a
+		class="tab-item external <!-- if {{nav}} == 'invoice'  -->active<!-- endif --> "
+		href="/invoice"> <!-- <span class="icon icon-edit"></span> --> <span
+		class="tab-label">我的发票</span>
+	</a> 
+	<a 
+	class="tab-item external <!-- if {{nav}} == 'invoiceReceivables'  -->active<!-- endif --> "
+		href="/invoiceMyReceivables"> <!-- <span class="icon icon-me"></span> -->
+		<span class="tab-label">我的收款</span> 
+		<!-- if !empty({{ascriptionQuantity(staff.0.cid)}}) -->
+		<span class="badge">{{ascriptionQuantity(staff.0.cid)}}</span>
+		<!-- endif -->
+	</a>
+
+	<!-- if isInvoiceMoldShow({{staff.0.sid}},'发票审批') -->
+	<a
+		class="tab-item external <!-- if {{nav}} == 'invoiceApproval'  -->active<!-- endif -->"
+		href="/invoiceApproval"> <span class="tab-label">发票审批</span>
+	</a>
+	<!-- endif -->
+	
+	<!-- if isInvoiceMoldShow({{staff.0.sid}},'发票打印') -->
+	<a
+		class="tab-item external <!-- if {{nav}} == 'invoicePrint'  -->active<!-- endif -->"
+		href="/invoicePrint"> <span class="tab-label">发票打印</span>
+	</a>
+	<!-- endif -->
+</nav>

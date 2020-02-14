@@ -1,0 +1,158 @@
+<!-- include 'holiday_header' -->
+<style type="text/css">
+    .infinite-scroll-preloader {
+        margin-top:-20px;
+    }
+</style>
+  <body>
+    <div class="page-group holidayList">
+        <div class="page page-current" id="page-fixed-tab-infinite-scroll">
+            <header class="bar bar-nav">
+              <h1 class="title holidayTBg">假条审批</h1>
+            </header>
+            <!-- include 'holiday_nav' -->
+            <input type="hidden" id="thispage" value="{{onpage}}">
+            <input type="hidden" id="allpage" value="{{allpage}}">
+            <div class="content">
+                <div class="content-block tabTitleBox">
+                    <div class="buttons-row">
+                        <a href="#tab1" class="tab-link active button tabBtnBig">待审批</a>
+                        <a href="#tab2" class="tab-link button tabBtnBig">已审批</a>
+                    </div>
+                </div>
+                <div class="tabs">
+                    <div id="tab1" class="tab active">
+                        <div class="content-block pLR-n">
+                            <!-- if isset({{unapprovallist}}) && !empty({{unapprovallist}}) -->
+                            <!-- loop unapprovallist -->
+                            <div class="list-block media-list">
+                                <ul>
+                                    <li>
+                                        <a href="http://m.cld.smartcost.com.cn/approvalholiday/{{unapprovallist' value.id}}?gourl=unapproval" class="item-link item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">{{unapprovallist' value.username}}{{unapprovallist' value.typename}}【{{unapprovallist' value.daynum}}天】</div>
+                                                </div>
+                                                <div class="item-subtitle">{{unapprovallist' value.daymsg}}</div>
+                                                <div class="item-text">{{unapprovallist' value.shortdescription}}</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- endloop -->
+                            <!-- endif -->
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab infinite-scroll">
+                        <div class="content-block pLR-n">
+                            <!-- if isset({{approvallist}}) && !empty({{approvallist}}) -->
+                            <!-- loop approvallist -->
+                            <div class="list-block media-list">
+                                <ul>
+                                    <li>
+                                        <a href="http://m.cld.smartcost.com.cn/approvalholiday/{{approvallist' value.id}}?gourl=approval" class="item-link item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">{{approvallist' value.username}}{{approvallist' value.typename}}【{{approvallist' value.daynum}}天】</div>
+                                                    <div class="item-after"><!-- if {{approvallist' value.astatus}} == 0 --><!-- elseif {{approvallist' value.astatus}} == 2 -->同意<!-- else -->不同意<!-- endif --></div>
+                                                </div>
+                                                <div class="item-subtitle">{{approvallist' value.daymsg}}</div>
+                                                <div class="item-text">{{approvallist' value.shortdescription}}</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- endloop -->
+                            <!-- endif -->
+                        </div>
+                        <!-- if {{allpage}} != 0 -->
+                        <!-- 加载提示符 -->
+                        <div class="infinite-scroll-preloader">
+                            <div class="preloader">
+                            </div>
+                        </div>
+                        <!-- endif -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script>
+      $(function () {
+          //多个标签页下的无限滚动
+          $(document).on("pageInit", "#page-fixed-tab-infinite-scroll", function(e, id, page) {
+              var loading = false;
+              var maxItems = $('#allpage').val();
+
+              function addItems(page2) {
+                  // 生成新条目的HTML
+                  $.ajax({
+                      type: 'post',
+                      url: '/holidayapprovallist/page',
+                      data: {page: page2},
+                      dataType: 'json',
+                      success: function (data) {
+                          $('#thispage').val(data.pagenum);
+                          if (data.code == 200) {
+                              var html = '';
+                              $.each(data.result, function (k, v) {
+                                  var status = '';
+                                  if (v.astatus == 2) {
+                                      status = '同意';
+                                  } else if (v.astatus == 3) {
+                                      status = '不同意';
+                                  }
+                                  html += '<div class="list-block media-list"><ul><li><a href="http://m.cld.smartcost.com.cn/approvalholiday/' + v.id + '?gourl=approval" class="item-link item-content"> <div class="item-inner"> <div class="item-title-row"> <div class="item-title">' + v.username + v.typename + '【' + v.daynum + '天】</div> <div class="item-after">' + status + '</div> </div> <div class="item-subtitle">'+ v.daymsg +'</div> <div class="item-text">' + v.shortdescription + '</div></div></a></li></ul></div>';
+                              });
+                              // 添加新条目
+                              $('.infinite-scroll.active .content-block').append(html);
+                          } else {
+                              $.toast('数据已经加载到底啦');
+                              // 加载完毕，则注销无限加载事件，以防不必要的加载
+                              $.detachInfiniteScroll($('.infinite-scroll'));
+                              // 删除加载提示符
+                              $('.infinite-scroll-preloader').remove();
+                          }
+                      }
+                  });
+              }
+              $(page).on('infinite', function() {
+                  // 如果正在加载，则退出
+                  if (loading) return;
+                  // 设置flag
+                  loading = true;
+                  var tabIndex = 0;
+                  if($(this).find('.infinite-scroll.active').attr('id') == "tab1"){
+                      tabIndex = 0;
+                  }
+                  if($(this).find('.infinite-scroll.active').attr('id') == "tab2"){
+                      tabIndex = 1;
+                  }
+                  // 模拟1s的加载过程
+                  setTimeout(function() {
+                      // 重置加载flag
+                      loading = false;
+                      if(tabIndex == 1){
+                          var page2 = $('#thispage').val();
+                          if (page2 >= maxItems) {
+                              $.toast('数据已经加载到底啦');
+                              // 加载完毕，则注销无限加载事件，以防不必要的加载
+                              $.detachInfiniteScroll($('.infinite-scroll'));
+                              // 删除加载提示符
+                              $('.infinite-scroll-preloader').remove();
+                              return;
+                          }
+                          addItems(parseInt(page2) + 1);
+                          // 更新最后加载的序号
+                          $.refreshScroller();
+                      }
+                  }, 1000);
+              });
+          });
+          $.init();
+      });
+  </script>
+  </body>
+</html>

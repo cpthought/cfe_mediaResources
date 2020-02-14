@@ -1,0 +1,68 @@
+<!-- include 'header' -->
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav">
+          	<a class="icon icon-left pull-left" href="/invoiceMyReceivables"></a>
+              <h1 class="title holidayTBg">收款认领</h1>
+          </header>
+            <!-- include 'invoiceNav' -->
+            <div class="content">
+              <div class="content-block tabTitleBox">
+                <div class="buttons-row">
+                  <a href="#tab1" class="tab-link active button tabBtnBig">公共·待认领款项</a>
+                  <a href="#tab2" class="tab-link button tabBtnBig">办事处·待认领款项</a>
+                </div>
+              </div>
+              <div class="tabs">
+                <div id="tab1" class="tab active">
+                
+                <!-- if !empty({{receivablesList.csClaim}}) -->
+                <!-- loop receivablesList.csClaim -->
+                  <div class="list-block media-list">
+                    <ul>
+                      <li>
+                        <a href="/invoiceReceivablesAscription/{{csClaim' value.iidKeyUrl}}.html" class="item-link item-content">
+                          <div class="item-inner">
+                            <div class="item-title-row">
+                              <div class="item-title">收款金额【￥{{csClaim' value.receivablesPrice}}】</div>
+                            </div>
+                            <div class="item-subtitle">银行账号信息：{{csClaim' value.receivablesMessage}}</div>
+                            <div class="item-text">到账时间：{{csClaim' value.receivablesDate}}</div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- endloop -->
+                <!-- endif -->
+                  
+                </div>
+                <div id="tab2" class="tab">
+                <!-- if !empty({{receivablesList.sClaim}}) -->
+                <!-- loop receivablesList.sClaim -->
+                  <div class="list-block media-list">
+                    <ul>
+                      <li>
+                        <a href="/invoiceReceivablesAscription/{{sClaim' value.iidKeyUrl}}.html" class="item-link item-content">
+                          <div class="item-inner">
+                            <div class="item-title-row">
+                              <div class="item-title">收款金额【￥{{sClaim' value.receivablesPrice}}】</div>
+                            </div>
+                            <div class="item-subtitle">银行账号信息：{{sClaim' value.receivablesMessage}}</div>
+                            <div class="item-text">到账时间：{{sClaim' value.receivablesDate}}</div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- endloop -->
+                  <!-- endif -->
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!-- include 'header' -->
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav">
+              <h1 class="title holidayTBg">选择培训班</h1>
+          </header>
+            <div class="content">
+            <!-- loop receiptList -->
+              <div class="card">
+                <div class="card-content">
+                  <div class="list-block">
+                    <ul>
+                      <li>
+                        <a href="/receiptItemList/{{receiptList' value.ridKey}}.html" external class="item-link item-content">
+                          <div class="item-media"><i class="icon icon-f7"></i></div>
+                          <div class="item-inner">
+                            <div class="item-title item-titleName">{{receiptList' value.trainName}}</div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- endloop -->
+               <!-- loop receiptExtendList -->
+              <div class="card">
+                <div class="card-content">
+                  <div class="list-block">
+                    <ul>
+                      <li>
+                        <a href="/receiptItemList/{{receiptExtendList' value.ridKey}}.html" external class="item-link item-content">
+                          <div class="item-media"><i class="icon icon-f7"></i></div>
+                          <div class="item-inner">
+                            <div class="item-title item-titleName">{{receiptExtendList' value.trainName}}</div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- endloop -->
+              
+            </div>
+        </div>
+    </div>
+
+       
+  </body>
+</html>

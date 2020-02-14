@@ -1,0 +1,19 @@
+<?php include Doo::conf()->SITE_PATH .  Doo::conf()->PROTECTED_FOLDER . "viewc//mobile/header.php"; ?>
+<body>
+	<div class="warpContent">
+			<legend><a href="/" class="fR">首页</a>在线锁库</legend>
+			<form id="form" name="form" action="/searchLongle" method="post">
+			<div class="control-group">
+              <label class="control-label">输入锁号</label>
+              <div class="controls">
+                <input type="text" name="search"
+              </div>
+		    </div>
+		    <div class="control-group">
+              <div class="controls">
+		   		 <input type="submit" value="搜索" class="button">
+              </div>
+            </div>
+            </form>
+	</div>
+</body>

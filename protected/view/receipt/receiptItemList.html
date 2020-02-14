@@ -1,0 +1,64 @@
+<!-- include 'header' -->
+
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+          <header class="bar bar-nav">
+              <a class="icon icon-left pull-left" href="/myReceiptTrain"></a>
+              <h1 class="title holidayTBg">培训班支出</h1>
+          </header>
+          <div class="bar bar-header-secondary">
+            <div class="row" style="overflow: inherit;">
+              <div class="col-50">
+                <select id="priority" data="{{detail.ridKey}}" class="button button-block">
+                 <!-- loop aiList -->
+								<!-- if {{aiList' value.name}}!='讲课费' -->
+								<option <!-- if {{aiList' value.name}}=={{name}} --> selected <!-- endif -->   value='{{aiList' value.name}}'>{{aiList' value.name}}</option>
+								<!-- endif -->
+							<!-- endloop -->
+                </select>
+              </div>
+              <div class="col-50">
+                <button id="timeMachine" data="{{detail.ridKey}}" class="button button-block">
+                  按照添加时间</button>
+              </div>
+            </div>
+          </div>
+          <div class="bar bar-footer-secondary">
+            <a class="button button-block button-fill button-big" href="/receiptTrainItemAdd/{{detail.ridKey}}.html" external>添加支出</a>
+          </div>
+            <div class="content">
+              <div class="content-block pLR-n">
+                <div class="content-block">
+                  <div>{{receiptTrainingDetail.trainName}}</div>
+                </div>
+                
+                <!-- loop RItemList -->
+                <div class="list-block media-list">
+                  <ul>
+                    <li>
+                      <a href="/receiptItemDetail/{{RItemList' value.riidKey}}.html" external class="item-link item-content">
+                        <div class="item-inner">
+                          <div class="item-title-row">
+                            <div class="item-title">{{RItemList' value.item}}</div>
+                            <div class="item-after">{{RItemList' value.price}}</div>
+                          </div>
+                          <div class="item-subtitle">{{RItemList' value.creater}}/{{RItemList' value.creatDate}}</div>
+                          <div class="item-text">{{RItemList' value.describe}}</div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- endloop -->
+                
+                
+                
+              </div>
+            </div>
+        </div>
+    </div>
+
+       
+  </body>
+</html>
